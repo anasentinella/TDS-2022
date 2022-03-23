@@ -11,6 +11,8 @@ namespace EstruturaSequencialEx
             Console.WriteLine("Exercícios Estrutura Sequencial");
             ExEstrutura.Ex1();
             ExEstrutura.Ex2();
+            ExEstrutura.Ex3();      
+           
         }
     }
 }
