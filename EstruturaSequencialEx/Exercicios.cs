@@ -17,7 +17,6 @@ namespace EstruturaSequencialEx
             valor2 = int.Parse(Console.ReadLine());
             soma = valor1 + valor2;
             Console.WriteLine ("A soma dos valores digitados é: \n" ,soma);
-    
             }
 
         public void Ex2()
