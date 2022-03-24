@@ -28,6 +28,7 @@ namespace EstruturaSequencialEx
             Console.WriteLine("O valor do raio do círculo: \n", raioc);
             area = (float)(raioc *raioc*3.14159);
             Console.WriteLine("O valor da área do círculo é : \n",  area);
+        
         }
 
         public void Ex3()
