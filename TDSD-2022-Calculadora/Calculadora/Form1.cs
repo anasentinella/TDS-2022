@@ -54,6 +54,9 @@ namespace Calculadora
                 case "*":
                     resultado = numero1 * numero2;
                     break;
+                case "y":
+                    resultado = Math.Pow(numero1, numero2);
+                    break;
             }
             txtDisplay.Text = resultado.ToString();
 
@@ -181,6 +184,53 @@ namespace Calculadora
             }
             if (txtDisplay.Text.Trim().Contains(",")) return;
             txtDisplay.Text += ",";
+        }
+
+        private void btnEleva_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text = Convert.ToString(Math.Pow(Convert.ToDouble(txtDisplay.Text), 2));
+        }
+
+        private void btnPower_Click(object sender, EventArgs e)
+        {
+            adicionarOperacao("y");
+        }
+
+        private void btnSqrt_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text = Convert.ToString(Math.Sqrt(Convert.ToDouble(txtDisplay.Text)));
+        }
+
+        private void btnFracao_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text = Convert.ToString(1/(Convert.ToDouble(txtDisplay.Text)));
+
+        }
+
+        private void btnBackspace_Click(object sender, EventArgs e)
+        {
+            txtDisplay.Text = txtDisplay.Text.Substring(0, txtDisplay.Text.Length - 1);
+
+        }
+
+        private void btnInversao_Click(object sender, EventArgs e)
+        {
+            if (txtDisplay.Text.Trim().Equals(String.Empty))
+            {
+
+            }
+            else
+            txtDisplay.Text = Convert.ToString(-1* (Convert.ToDouble(txtDisplay.Text)));
+        }
+
+        private void btnC_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
+
+        private void btnCE_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
         }
     }
 }

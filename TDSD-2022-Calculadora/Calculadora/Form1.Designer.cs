@@ -189,6 +189,7 @@ namespace Calculadora
             this.btnInversao.Size = new System.Drawing.Size(53, 40);
             this.btnInversao.TabIndex = 1;
             this.btnInversao.Text = "+/-";
+            this.btnInversao.Click += new System.EventHandler(this.btnInversao_Click);
             // 
             // btnC
             // 
@@ -197,6 +198,7 @@ namespace Calculadora
             this.btnC.Size = new System.Drawing.Size(53, 40);
             this.btnC.TabIndex = 0;
             this.btnC.Text = "C";
+            this.btnC.Click += new System.EventHandler(this.btnC_Click);
             // 
             // btnCE
             // 
@@ -205,6 +207,7 @@ namespace Calculadora
             this.btnCE.Size = new System.Drawing.Size(53, 40);
             this.btnCE.TabIndex = 1;
             this.btnCE.Text = "CE";
+            this.btnCE.Click += new System.EventHandler(this.btnCE_Click);
             // 
             // btnBackspace
             // 
@@ -212,7 +215,8 @@ namespace Calculadora
             this.btnBackspace.Name = "btnBackspace";
             this.btnBackspace.Size = new System.Drawing.Size(53, 40);
             this.btnBackspace.TabIndex = 1;
-            this.btnBackspace.Text = "<=";
+            this.btnBackspace.Text = "←";
+            this.btnBackspace.Click += new System.EventHandler(this.btnBackspace_Click);
             // 
             // btnDivide
             // 
@@ -230,6 +234,7 @@ namespace Calculadora
             this.btnPower.Size = new System.Drawing.Size(88, 40);
             this.btnPower.TabIndex = 1;
             this.btnPower.Text = "x^y";
+            this.btnPower.Click += new System.EventHandler(this.btnPower_Click);
             // 
             // btnEleva
             // 
@@ -238,6 +243,7 @@ namespace Calculadora
             this.btnEleva.Size = new System.Drawing.Size(88, 40);
             this.btnEleva.TabIndex = 1;
             this.btnEleva.Text = "x^2";
+            this.btnEleva.Click += new System.EventHandler(this.btnEleva_Click);
             // 
             // btnSqrt
             // 
@@ -246,6 +252,7 @@ namespace Calculadora
             this.btnSqrt.Size = new System.Drawing.Size(88, 40);
             this.btnSqrt.TabIndex = 1;
             this.btnSqrt.Text = "Sqrt(x)";
+            this.btnSqrt.Click += new System.EventHandler(this.btnSqrt_Click);
             // 
             // btnFracao
             // 
@@ -254,6 +261,7 @@ namespace Calculadora
             this.btnFracao.Size = new System.Drawing.Size(88, 40);
             this.btnFracao.TabIndex = 1;
             this.btnFracao.Text = "1/x";
+            this.btnFracao.Click += new System.EventHandler(this.btnFracao_Click);
             // 
             // btnIgual
             // 
