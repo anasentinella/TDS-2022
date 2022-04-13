@@ -78,24 +78,23 @@ namespace EstruturaSequencialEx
         }
         public void Ex6()
         {
-            double a, b, c, r;
-            float areaT, areaC, areaTr, areaQ, areaR;
-            Console.WriteLine(" Lista 1-Exercicio 6  \n");
-            Console.WriteLine("exercicio 6\n");
-            a = double.Parse(Console.ReadLine());
-            b = double.Parse(Console.ReadLine());
-            c = double.Parse(Console.ReadLine());
-            r = float.Parse(Console.ReadLine());
-            areaT = (float)(a * c);
-            Console.WriteLine("área do triângulo ", areaT);
-            areaC = (float)(3.14159 * r * r);
-            Console.WriteLine("área do circulo ", areaC);
-            areaTr = (float)((a + b) * c);
-            Console.WriteLine("área do trapézio ", areaTr);
-            areaQ = (float)(a * a);
-            Console.WriteLine("área do quadrado: ", areaQ);
-            areaR = (float)(a * b);
-            Console.WriteLine("área do retângulo ", areaR);
+            Console.WriteLine("\n\n\t\t Exercicio 6 \n\n");
+            float a, b, c;
+            double result, pi = 3.14159;
+            Console.WriteLine("\n insira o primeiro valor: ");
+            a = float.Parse(Console.ReadLine());
+            Console.WriteLine("\n insira o segundo valor: ");
+            b = float.Parse(Console.ReadLine());
+            Console.WriteLine("\n insira o terceiro valor: ");
+            c = float.Parse(Console.ReadLine());
+            result = (a * c) / 2;
+            Console.WriteLine("\n\n Círculo (C como raio): \t\t\t {0:f3}", result);
+            result = (a + b) / 2 * c;
+            Console.WriteLine("\n\n Trapézio (A e B = base e C=altura): \t\t\t {0:f3}", result);
+            result = b * b;
+            Console.WriteLine("\n\n Quadrado (B = lado): \t\t\t {0:f3}", result);
+            result = a * b;
+            Console.WriteLine("\n\n Retângulo (A e B = lados): \t\t\t {0:f3}", result);
         }
     }
 }
