@@ -151,6 +151,7 @@ namespace Calculadora
 
         private void btnIgual_Click(object sender, EventArgs e)
         {
+            if (!txtDisplay.Text.Trim().Equals(String.Empty))
             {
                 numero2 = Convert.ToDouble(txtDisplay.Text.Trim());
                 Calcular();
