@@ -38,11 +38,13 @@ namespace Calculadora
             switch(operacao)
             {
                 case "/":
+                    if(numero2==0)
                     {
                         MessageBox.Show("Impossível divisão por zero!",
                             "Aviso do sistema", MessageBoxButtons.OK);
                         break;
                     }
+                    else
                     resultado = numero1 / numero2;
                     break;
                 case "+":
