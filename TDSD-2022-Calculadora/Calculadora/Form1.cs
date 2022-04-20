@@ -230,7 +230,7 @@ namespace Calculadora
 
         private void btnCE_Click(object sender, EventArgs e)
         {
-            LimparCampos();
+            txtDisplay.Text = string.Empty;
         }
     }
 }
