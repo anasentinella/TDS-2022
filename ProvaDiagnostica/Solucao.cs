@@ -8,29 +8,29 @@ namespace ProvaDiagnostica
     {
         public void Ex1()
         {
-            int cp1, qp1;
-            float vu1;
-            int cp2, qp2;
-            float vu2;
+            int codp1, qtdp1;
+            float valun1;
+            int codp2, qtdp2;
+            float valun2;
             float vlrPagar;
             Console.WriteLine("exercicio 1\n");
             Console.WriteLine("Peça 1\n");
             Console.WriteLine("Digite o código da peça 1 : \n");
-            cp1 = int.Parse(Console.ReadLine());
+            codp1 = int.Parse(Console.ReadLine());
             Console.WriteLine("Digite a quantidade de peça 1 : \n");
-            qp1 = int.Parse(Console.ReadLine());
+            qtdp1 = int.Parse(Console.ReadLine());
             Console.WriteLine("Digite o valorunitário da peça 1 : \n");
-            vu1 = float.Parse(Console.ReadLine());
+            valun1 = float.Parse(Console.ReadLine());
 
             Console.WriteLine("peça 2\n");
             Console.WriteLine("Digite o código da peça 2 : \n");
-            cp2 = int.Parse(Console.ReadLine());
+            codp2 = int.Parse(Console.ReadLine());
             Console.WriteLine("Digite a quantidade de peça 2 : \n");
-            qp2 = int.Parse(Console.ReadLine());
+            qtdp2 = int.Parse(Console.ReadLine());
             Console.WriteLine("Digite o valorunitário da peça 2 : \n");
-            vu2 = float.Parse(Console.ReadLine());
+            valun2 = float.Parse(Console.ReadLine());
 
-            vlrPagar = (qp1 * vu1) + (qp2 * vu2);
+            vlrPagar = (qtdp1 * valun1) + (qtdp2 * valun2);
             Console.WriteLine("Valor a ser pago: {0:f2} ", vlrPagar);
         }
         public void Ex1_2()
