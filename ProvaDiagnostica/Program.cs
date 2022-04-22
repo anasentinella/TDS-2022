@@ -12,7 +12,10 @@ namespace ProvaDiagnostica
 
             Console.WriteLine("Prova Diagnóstica!\n");
             ProvaDiag.Ex1();
+            ProvaDiag.Ex1_2();
             ProvaDiag.Ex2();
+            ProvaDiag.Ex2_2();
+            ProvaDiag.Ex3();
 
         }
     }
