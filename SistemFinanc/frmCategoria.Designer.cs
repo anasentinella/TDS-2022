@@ -151,6 +151,7 @@ namespace SistemFinanc
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(369, 32);
             this.txtNome.TabIndex = 0;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // btnNovo
             // 
@@ -161,6 +162,7 @@ namespace SistemFinanc
             this.btnNovo.TabIndex = 1;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnAlterar
             // 
@@ -171,6 +173,7 @@ namespace SistemFinanc
             this.btnAlterar.TabIndex = 2;
             this.btnAlterar.Text = "alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
@@ -181,6 +184,7 @@ namespace SistemFinanc
             this.btnExcluir.TabIndex = 3;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnSalvar
             // 
@@ -191,6 +195,7 @@ namespace SistemFinanc
             this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnCancela
             // 
@@ -222,6 +227,7 @@ namespace SistemFinanc
             this.Name = "frmCategoria";
             this.ShowIcon = false;
             this.Text = "Categoria";
+            this.Load += new System.EventHandler(this.frmCategoria_Load);
             this.grpCategoria.ResumeLayout(false);
             this.grpCategoria.PerformLayout();
             this.ResumeLayout(false);

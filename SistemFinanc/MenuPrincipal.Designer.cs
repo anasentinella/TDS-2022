@@ -332,14 +332,14 @@ namespace SistemFinanc
             // subMenuCategoria
             // 
             this.subMenuCategoria.Name = "subMenuCategoria";
-            this.subMenuCategoria.Size = new System.Drawing.Size(180, 22);
+            this.subMenuCategoria.Size = new System.Drawing.Size(125, 22);
             this.subMenuCategoria.Text = "Categoria";
             this.subMenuCategoria.Click += new System.EventHandler(this.subMenuCategoria_Click);
             // 
             // subMenuconta
             // 
             this.subMenuconta.Name = "subMenuconta";
-            this.subMenuconta.Size = new System.Drawing.Size(180, 22);
+            this.subMenuconta.Size = new System.Drawing.Size(125, 22);
             this.subMenuconta.Text = "Conta";
             // 
             // toolsMenu
@@ -570,6 +570,7 @@ namespace SistemFinanc
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MenuPrincipal";
             this.Text = "MenuPrincipal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.toolStrip.ResumeLayout(false);
