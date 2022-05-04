@@ -100,22 +100,25 @@ namespace ProvaDiagnostica
 
         public void Ex2_2()
         {
-            Console.WriteLine("Exercicío 2.2 \n");
-
-
-
-
-
-
-
-
+            int num, ht;
+            double vh, sal;
+            Console.WriteLine("Exercicio 2_2\n");
+            Console.WriteLine("Digite o número do funcionário: ");
+            num = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite as horas trabalhadas do funcionário: ");
+            ht = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o valor que o funcionário recebe por hora: ");
+            vh = int.Parse(Console.ReadLine());
+            sal = ht * vh;
+            Console.WriteLine($"O funcionário de número {num} tem como salário R${sal:F2}.");
         }
 
         public void Ex3()
         {
-            int senha;
+            int senha=0;
             Console.WriteLine("Exercicío 3 \n");
-            while (senha != cotil)
+            int cotil = 0;
+            while (senha != cotil) ;
                 
             {
                 Console.WriteLine("Digite a senha: \n");
@@ -128,6 +131,29 @@ namespace ProvaDiagnostica
                 else
                     Console.WriteLine("Senha incorreta - Acesso Negado \n");
             }
+        }
+
+        public void Ex3_2()
+        {
+            double x, y, z;
+            Console.WriteLine("Exercicio 3_3");
+            Console.WriteLine("Digite o 1° ponto flutuante:");
+            x = double.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o 2° ponto flutuante:");
+            y = double.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o 3° ponto flutuante:");
+            z = double.Parse(Console.ReadLine());
+            double a = (x * z) / 2;
+            Console.WriteLine($"Triângulo: {a:F3}");
+            double b = 3.14159 * z * z;
+            Console.WriteLine($"Círculo: {b:F3}");
+            double c = ((x + y) * z) / 2;
+            Console.WriteLine($"Trapézio: {c:F3}");
+            double d = y * y;
+            Console.WriteLine($"Quadrado: {d:F3}");
+            double e = x * y;
+            Console.WriteLine($"Retângulo: {e:F3}");
+
         }
     }
 }
