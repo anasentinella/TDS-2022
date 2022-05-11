@@ -44,7 +44,9 @@ namespace SistemFinanc
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnCancela = new System.Windows.Forms.Button();
+            this.dgCategoria = new System.Windows.Forms.DataGridView();
             this.grpCategoria.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCategoria)).BeginInit();
             this.SuspendLayout();
             // 
             // grpCategoria
@@ -60,7 +62,7 @@ namespace SistemFinanc
             this.grpCategoria.Controls.Add(this.txtNome);
             this.grpCategoria.Location = new System.Drawing.Point(12, 12);
             this.grpCategoria.Name = "grpCategoria";
-            this.grpCategoria.Size = new System.Drawing.Size(693, 237);
+            this.grpCategoria.Size = new System.Drawing.Size(755, 199);
             this.grpCategoria.TabIndex = 0;
             this.grpCategoria.TabStop = false;
             // 
@@ -156,9 +158,9 @@ namespace SistemFinanc
             // btnNovo
             // 
             this.btnNovo.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnNovo.Location = new System.Drawing.Point(41, 280);
+            this.btnNovo.Location = new System.Drawing.Point(19, 434);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 31);
+            this.btnNovo.Size = new System.Drawing.Size(84, 40);
             this.btnNovo.TabIndex = 1;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
@@ -167,9 +169,9 @@ namespace SistemFinanc
             // btnAlterar
             // 
             this.btnAlterar.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnAlterar.Location = new System.Drawing.Point(128, 280);
+            this.btnAlterar.Location = new System.Drawing.Point(109, 436);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 31);
+            this.btnAlterar.Size = new System.Drawing.Size(84, 40);
             this.btnAlterar.TabIndex = 2;
             this.btnAlterar.Text = "alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
@@ -178,9 +180,9 @@ namespace SistemFinanc
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnExcluir.Location = new System.Drawing.Point(209, 280);
+            this.btnExcluir.Location = new System.Drawing.Point(199, 434);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 31);
+            this.btnExcluir.Size = new System.Drawing.Size(84, 40);
             this.btnExcluir.TabIndex = 3;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
@@ -189,9 +191,9 @@ namespace SistemFinanc
             // btnSalvar
             // 
             this.btnSalvar.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSalvar.Location = new System.Drawing.Point(290, 280);
+            this.btnSalvar.Location = new System.Drawing.Point(289, 434);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 31);
+            this.btnSalvar.Size = new System.Drawing.Size(84, 40);
             this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
@@ -200,20 +202,31 @@ namespace SistemFinanc
             // btnCancela
             // 
             this.btnCancela.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnCancela.Location = new System.Drawing.Point(630, 280);
+            this.btnCancela.Location = new System.Drawing.Point(655, 436);
             this.btnCancela.Name = "btnCancela";
-            this.btnCancela.Size = new System.Drawing.Size(75, 31);
+            this.btnCancela.Size = new System.Drawing.Size(102, 40);
             this.btnCancela.TabIndex = 5;
             this.btnCancela.Text = "Cancelar";
             this.btnCancela.UseVisualStyleBackColor = false;
             this.btnCancela.Click += new System.EventHandler(this.btnCancela_Click);
+            // 
+            // dgCategoria
+            // 
+            this.dgCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgCategoria.Location = new System.Drawing.Point(12, 217);
+            this.dgCategoria.Name = "dgCategoria";
+            this.dgCategoria.RowTemplate.Height = 25;
+            this.dgCategoria.Size = new System.Drawing.Size(755, 200);
+            this.dgCategoria.TabIndex = 6;
+            this.dgCategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // frmCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(708, 323);
+            this.ClientSize = new System.Drawing.Size(779, 486);
+            this.Controls.Add(this.dgCategoria);
             this.Controls.Add(this.btnCancela);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnExcluir);
@@ -232,6 +245,7 @@ namespace SistemFinanc
             this.Load += new System.EventHandler(this.frmCategoria_Load);
             this.grpCategoria.ResumeLayout(false);
             this.grpCategoria.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCategoria)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,5 +267,6 @@ namespace SistemFinanc
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnCancela;
+        private System.Windows.Forms.DataGridView dgCategoria;
     }
 }
