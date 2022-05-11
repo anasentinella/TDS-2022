@@ -47,7 +47,7 @@ namespace SistemFinanc
             btnCancela.Visible = true;
             btnSalvar.Visible = true;
             btnExcluir.Visible = false;
-            btnNovo.Enabled = false;
+            btnNovo.Enabled = true;
             Insercao = true;
             Edicao = false;
         }
@@ -55,14 +55,23 @@ namespace SistemFinanc
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             grpCategoria.Enabled = true;
+            txtNome.Focus();
+            btnAlterar.Enabled = false;
             btnCancela.Enabled = true;
-
+            btnNovo.Enabled = false;
+            btnAlterar.Enabled = false;
+            btnExcluir.Visible = false;
+            btnSalvar.Visible = true;
+            btnCancela.Visible = true;
+            Insercao = false;
+            Edicao = true;
 
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Deseja mesmo Excluir?", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("arquivo excluido com sucesso", "aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             limparCampos();
         }
 
@@ -72,7 +81,7 @@ namespace SistemFinanc
             btnNovo.Enabled=false;
 
             txtDescricao.Enabled = true;
-            btnAlterar.Enabled = false;
+            btnAlterar.Enabled = true;
             btnCancela.Visible = false;
             btnSalvar.Enabled = true;
             btnExcluir.Visible = true;
@@ -85,6 +94,28 @@ namespace SistemFinanc
         private void txtNome_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmCategoria_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(Edicao || Insercao)
+            {
+                e.Cancel = true;
+                MessageBox.Show("Rimani qui! :)", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnCancela_Click(object sender, EventArgs e)
+        {
+            btnNovo.Focus();
+            btnNovo.Enabled = true;
+            btnAlterar.Enabled = true;
+            btnExcluir.Visible = true;
+            btnSalvar.Visible = false;
+            btnCancela.Visible = false;
+            grpCategoria.Enabled = false;
+            Insercao = true;
+            Edicao = false;
         }
     }
 }
