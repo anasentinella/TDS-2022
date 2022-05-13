@@ -59,7 +59,7 @@ namespace SistemFinanc
             btnAlterar.Enabled = false;
             btnCancela.Enabled = true;
             btnNovo.Enabled = false;
-            btnAlterar.Enabled = false;
+            btnAlterar.Enabled = true;
             btnExcluir.Visible = false;
             btnSalvar.Visible = true;
             btnCancela.Visible = true;
@@ -70,52 +70,55 @@ namespace SistemFinanc
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Deseja mesmo Excluir?", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            MessageBox.Show("arquivo excluido com sucesso", "aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            limparCampos();
+           if( MessageBox.Show(" Deseja mesmo Excluir? ", " Aviso do sistema! ", MessageBoxButtons.YesNo, 
+               MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                limparCampos();
+                MessageBox.Show(" Arquivo excluido com sucesso! ", " Aviso do sistema! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+          else
+            {
+
+            }
+            btnNovo.Focus();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Registro salvo com sucesso!", "aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            btnNovo.Enabled=false;
+            btnNovo.Enabled=true;
 
             txtDescricao.Enabled = true;
             btnAlterar.Enabled = true;
             btnCancela.Visible = false;
-            btnSalvar.Enabled = true;
+            btnSalvar.Visible = false;
             btnExcluir.Visible = true;
+            grpCategoria.Enabled = false;
             btnNovo.Enabled = true;
             btnNovo.Focus();
             Insercao = false;
             Edicao = false;
         }
 
-        private void txtNome_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmCategoria_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(Edicao || Insercao)
-            {
-                e.Cancel = true;
-                MessageBox.Show("Rimani qui! :)", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
         private void btnCancela_Click(object sender, EventArgs e)
         {
-            btnNovo.Focus();
             btnNovo.Enabled = true;
             btnAlterar.Enabled = true;
             btnExcluir.Visible = true;
             btnSalvar.Visible = false;
             btnCancela.Visible = false;
             grpCategoria.Enabled = false;
+            btnNovo.Focus();
             Insercao = true;
             Edicao = false;
+        }
+        private void frmCategoria_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Edicao || Insercao)
+            {
+                e.Cancel = true;
+                MessageBox.Show("Rimani qui! :)", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
