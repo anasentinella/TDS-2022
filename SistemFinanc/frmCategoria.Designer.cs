@@ -153,7 +153,6 @@ namespace SistemFinanc
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(369, 32);
             this.txtNome.TabIndex = 0;
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // btnNovo
             // 

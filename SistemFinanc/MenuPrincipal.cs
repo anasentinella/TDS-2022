@@ -124,5 +124,10 @@ namespace SistemFinanc
                 fCategoria.Show();
             }
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Felipe da Silva Furlani Ra-201279\n", "Ana júlia Pereira Sentinella Ra-201281");
+        }
     }
 }
