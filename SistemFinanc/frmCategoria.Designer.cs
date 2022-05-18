@@ -111,7 +111,6 @@ namespace SistemFinanc
             this.chkStatus.TabIndex = 4;
             this.chkStatus.Text = "Ativa";
             this.chkStatus.UseVisualStyleBackColor = true;
-            this.chkStatus.CheckedChanged += new System.EventHandler(this.chkStatus_CheckedChanged);
             // 
             // rdDespesa
             // 
@@ -152,7 +151,6 @@ namespace SistemFinanc
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(369, 32);
             this.txtNome.TabIndex = 0;
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // btnNovo
             // 

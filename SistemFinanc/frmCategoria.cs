@@ -44,10 +44,12 @@ namespace SistemFinanc
             limparCampos();
             txtNome.Focus();
             btnAlterar.Enabled = false;
-            btnCancela.Visible = true;
+            btnCancela.Visible = false;
             btnSalvar.Visible = true;
             btnExcluir.Visible = false;
             btnNovo.Enabled = true;
+            chkStatus.Checked = true;
+
             Insercao = true;
             Edicao = false;
         }
@@ -70,20 +72,20 @@ namespace SistemFinanc
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-           if( MessageBox.Show(" Deseja mesmo Excluir? ", " Aviso do sistema! ", MessageBoxButtons.YesNo, 
-               MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MessageBox.Show(" Deseja mesmo Excluir? ", " Aviso do sistema! ", MessageBoxButtons.YesNo,
+                              MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    limparCampos();
+                    MessageBox.Show(" Arquivo excluido com sucesso! ", " Aviso do sistema! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }    
+            else 
             {
-                limparCampos();
-                MessageBox.Show(" Arquivo excluido com sucesso! ", " Aviso do sistema! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-          else
-            {
-
+               
             }
             btnNovo.Focus();
         }
-
-        private void btnSalvar_Click(object sender, EventArgs e)
+         
+    private void btnSalvar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Registro salvo com sucesso!", "aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnNovo.Enabled=true;
@@ -120,5 +122,7 @@ namespace SistemFinanc
                 MessageBox.Show("Rimani qui! :)", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+       
     }
 }
