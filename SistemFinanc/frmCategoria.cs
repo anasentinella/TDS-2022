@@ -14,11 +14,11 @@ namespace SistemFinanc
     {
         private bool Insercao = false;
         private bool Edicao = false;
-      
+
         private Categoria categoria = new Categoria();
         private List<Categoria> lstCategoria = new List<Categoria>();
         private BindingSource bsCategoria;
-      
+
         public frmCategoria()
         {
             InitializeComponent();
@@ -32,7 +32,6 @@ namespace SistemFinanc
             rdDespesa.Checked = false;
             rdReceita.Checked = false;
             chkStatus.Checked = false;
-            
         }
 
         private void frmCategoria_Load(object sender, EventArgs e)
@@ -82,7 +81,6 @@ namespace SistemFinanc
             btnExcluir.Visible = false;
             btnNovo.Enabled = true;
             chkStatus.Checked = true;
-
             Insercao = true;
             Edicao = false;
         }
@@ -106,21 +104,21 @@ namespace SistemFinanc
         {
             if (MessageBox.Show(" Deseja mesmo Excluir? ", " Aviso do sistema! ", MessageBoxButtons.YesNo,
                               MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    limparCampos();
-                    MessageBox.Show(" Arquivo excluido com sucesso! ", " Aviso do sistema! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }    
-            else 
             {
-               
+                limparCampos();
+                MessageBox.Show(" Arquivo excluido com sucesso! ", " Aviso do sistema! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+
             }
             btnNovo.Focus();
         }
-         
-    private void btnSalvar_Click(object sender, EventArgs e)
+
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Registro salvo com sucesso!", "aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            btnNovo.Enabled=true;
+            btnNovo.Enabled = true;
 
             txtDescricao.Enabled = true;
             btnAlterar.Enabled = true;
@@ -147,10 +145,12 @@ namespace SistemFinanc
             Edicao = false;
         }
 
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
         private void frmCategoria_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (Edicao || Insercao)
@@ -160,6 +160,6 @@ namespace SistemFinanc
             }
         }
 
-       
+
     }
 }

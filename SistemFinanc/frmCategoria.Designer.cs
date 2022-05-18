@@ -240,7 +240,7 @@ namespace SistemFinanc
             this.Name = "frmCategoria";
             this.ShowIcon = false;
             this.Text = "Categoria";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCategoria_FormClosing);
+          
             this.Load += new System.EventHandler(this.frmCategoria_Load);
             this.grpCategoria.ResumeLayout(false);
             this.grpCategoria.PerformLayout();
