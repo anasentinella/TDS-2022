@@ -127,7 +127,9 @@ namespace SistemFinanc
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Felipe da Silva Furlani Ra-201279\n", "Ana júlia Pereira Sentinella Ra-201281");
+            MessageBox.Show("Felipe da Silva Furlani Ra-201279\nAna Júlia Pereira Sentinella Ra-201281","aviso do sistema", MessageBoxButtons.OK);
         }
+
+       
     }
 }

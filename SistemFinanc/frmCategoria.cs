@@ -19,10 +19,21 @@ namespace SistemFinanc
         private List<Categoria> lstCategoria = new List<Categoria>();
         private BindingSource bsCategoria;
 
+        
+
         public frmCategoria()
         {
             InitializeComponent();
             lstCategoria = categoria.GeraCategorias();
+        }
+
+        public void carregaGridCatoria()
+        {
+            bsCategoria = new BindingSource();
+            bsCategoria.DataSource = lstCategoria;
+            dgCategoria.Rows.Clear();
+            dgCategoria.DataSource = bsCategoria;
+            dgCategoria.Refresh();
         }
 
         private void limparCampos()
@@ -59,17 +70,13 @@ namespace SistemFinanc
             dgCategoria.MultiSelect = false;
             dgCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            carregaCategoria();
+            carregaGridCatoria();
         }
 
-        public void carregaCategoria()
-        {
-            bsCategoria = new BindingSource();
-            bsCategoria.DataSource = lstCategoria;
-            //dgCategoria.Rows.Clear();
-            dgCategoria.DataSource = bsCategoria;
-            dgCategoria.Refresh();
-        }
+        
+
+
+
         private void btnNovo_Click(object sender, EventArgs e)
         {
             grpCategoria.Enabled = true;
@@ -117,21 +124,38 @@ namespace SistemFinanc
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Registro salvo com sucesso!", "aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            btnNovo.Enabled = true;
+            if (Insercao)
+            {
 
-            txtDescricao.Enabled = true;
-            btnAlterar.Enabled = true;
-            btnCancela.Visible = false;
-            btnSalvar.Visible = false;
-            btnExcluir.Visible = true;
-            grpCategoria.Enabled = false;
-            btnNovo.Enabled = true;
-            btnNovo.Focus();
-            Insercao = false;
-            Edicao = false;
+            }
+
+
+
+            if (Edicao)
+            {
+                Categoria ct = lstCategoria.Find(item => item.Nome == txtNome.Text.Trim());
+                if (ct != null)
+                {
+                    ct.Descricao = txtDescricao.Text.Trim();
+                    ct.Tipo = rdReceita.Checked ? 1 : 2;
+                    ct.Status = chkStatus.Checked ? 1 : 0;
+                }
+
+                MessageBox.Show("Registro salvo com sucesso!", "aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnNovo.Enabled = true;
+
+                txtDescricao.Enabled = true;
+                btnAlterar.Enabled = true;
+                btnCancela.Visible = false;
+                btnSalvar.Visible = false;
+                btnExcluir.Visible = true;
+                grpCategoria.Enabled = false;
+                btnNovo.Enabled = false;
+                btnNovo.Focus();
+                Insercao = false;
+                Edicao = false;
+            }
         }
-
         private void btnCancela_Click(object sender, EventArgs e)
         {
             btnNovo.Enabled = true;
@@ -145,10 +169,11 @@ namespace SistemFinanc
             Edicao = false;
         }
 
+       
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+          
         }
 
         private void frmCategoria_FormClosing(object sender, FormClosingEventArgs e)
@@ -160,6 +185,6 @@ namespace SistemFinanc
             }
         }
 
-
+        
     }
 }
