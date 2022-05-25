@@ -8,11 +8,10 @@ namespace SisFin
     {
         private bool Insercao = false;
         private bool Edicao = false;
-        // NOVO ====================
-        private Categoria categoria = new Categoria(); 
+        private Categoria categoria = new Categoria();
         private List<Categoria> lstCategoria = new List<Categoria>();
         private BindingSource bsCategoria;
-        //==========================
+
         public frmCategoria()
         {
             InitializeComponent();
@@ -28,7 +27,7 @@ namespace SisFin
             chkStatus.Checked = false;
         }
 
-        // NOVO ====================
+
         private void preencheCampos()
         {
             txtNome.Text = dgCategoria.Rows[dgCategoria.CurrentRow.Index].Cells[1].Value.ToString();
@@ -45,7 +44,7 @@ namespace SisFin
                 chkStatus.Checked = false;
         }
 
-        // NOVO ====================
+
         private void carregaGridCategoria()
         {
             bsCategoria = new BindingSource();
@@ -54,7 +53,7 @@ namespace SisFin
             dgCategoria.DataSource = bsCategoria;
             dgCategoria.Refresh();
         }
-        // =================================           
+
         private void novoRegistro(object sender, EventArgs e)
         {
             grpCategoria.Enabled = true;
@@ -65,7 +64,7 @@ namespace SisFin
             btnSalvar.Visible = true;
             btnExcluir.Visible = false;
             btnNovo.Enabled = false;
-            dgCategoria.Enabled = false; //novo
+            dgCategoria.Enabled = false;
             chkStatus.Checked = true;
             Insercao = true;
             Edicao = false;
@@ -80,7 +79,7 @@ namespace SisFin
             btnCancelar.Visible = false;
             btnSalvar.Visible = false;
             btnExcluir.Visible = true;
-            dgCategoria.Enabled = true; //novo
+            dgCategoria.Enabled = true;
             Insercao = false;
             Edicao = false;
             preencheCampos();
@@ -96,14 +95,13 @@ namespace SisFin
             btnSalvar.Visible = true;
             btnCancelar.Visible = true;
             btnExcluir.Visible = false;
-            dgCategoria.Enabled=false; //novo
+            dgCategoria.Enabled = false;
             Edicao = true;
             Insercao = false;
         }
 
         private void frmCategoria_Load(object sender, EventArgs e)
         {
-            // NOVO ====================
             dgCategoria.ColumnCount = 5;
             dgCategoria.AutoGenerateColumns = false;
             dgCategoria.Columns[0].Width = 50;
@@ -128,30 +126,21 @@ namespace SisFin
             dgCategoria.MultiSelect = false;
             dgCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            carregaGridCategoria(); 
-            //================================
+            carregaGridCategoria();
+
         }
 
         private void salvarRegistro(object sender, EventArgs e)
         {
-
-            // DESAFIO
-            /*
-             * Se for uma alteração, procurar o elemento na lista e atualizá-lo.
-             * Se for uma inclusão, simplesmente adicionar um novo elmento na lista.
-             * IMPORTANTE!!!
-             * Após atualizar a lista deverá ser atualizado o GRIDVIEW
-             */
-
             if (Insercao)
             {
                 var nome = txtNome.Text.Trim();
                 var descr = txtDescricao.Text.Trim();
                 var tipo = rdReceita.Checked ? 1 : 2;
                 var status = chkStatus.Checked ? 1 : 0;
-                categoria.AddToList(3,nome,descr,tipo,status);
+                categoria.AddToList(3, nome, descr, tipo, status);
             }
-            
+
             if (Edicao)
             {
                 Categoria ct = lstCategoria.Find(item => item.Nome == txtNome.Text.Trim());
@@ -165,8 +154,8 @@ namespace SisFin
 
             carregaGridCategoria();
 
-            MessageBox.Show("Registro gravado com sucesso!", "Aviso do sistema", 
-                MessageBoxButtons.OK, 
+            MessageBox.Show("Registro gravado com sucesso!", "Aviso do sistema",
+                MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
 
             btnNovo.Enabled = true;
@@ -177,14 +166,14 @@ namespace SisFin
             btnCancelar.Visible = false;
             btnSalvar.Visible = false;
             btnExcluir.Visible = true;
-            dgCategoria.Enabled = true; //novo
-             
+            dgCategoria.Enabled = true;
+
             Insercao = false;
             Edicao = false;
-          
+
         }
 
-        // NOVO ====================
+
         private void dgCategoria_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (dgCategoria.RowCount > 0)
@@ -192,12 +181,12 @@ namespace SisFin
                 txtNome.Text = dgCategoria.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtDescricao.Text = dgCategoria.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-                if (Convert.ToInt16(dgCategoria.Rows[e.RowIndex].Cells[3].Value.ToString())==1)
+                if (Convert.ToInt16(dgCategoria.Rows[e.RowIndex].Cells[3].Value.ToString()) == 1)
                     rdReceita.Checked = true;
                 else
                     rdDespesa.Checked = true;
 
-                if (Convert.ToInt16(dgCategoria.Rows[e.RowIndex].Cells[4].Value.ToString())==1)
+                if (Convert.ToInt16(dgCategoria.Rows[e.RowIndex].Cells[4].Value.ToString()) == 1)
                     chkStatus.Checked = true;
                 else
                     chkStatus.Checked = false;
@@ -214,14 +203,13 @@ namespace SisFin
                 dgCategoria.Rows.RemoveAt(dgCategoria.CurrentRow.Index);
             }
         }
-        //==================================
 
         private void fecharForm(object sender, FormClosingEventArgs e)
         {
             if (Edicao || Insercao)
             {
                 e.Cancel = true;
-                MessageBox.Show("Bleib hier! (fique aqui)","Aviso do sistema!",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Bleib hier! (fique aqui)", "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
