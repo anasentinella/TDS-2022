@@ -1,22 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemFinanc
+namespace SisFin
 {
     public partial class MenuPrincipal : Form
     {
         private int childFormNumber = 0;
+        private static frmCategoria fCategoria;
 
         public MenuPrincipal()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -52,8 +47,12 @@ namespace SistemFinanc
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult resp;
-            resp = MessageBox.Show(" Tem certeza que deseja sair? "," Aviso do sistema ",MessageBoxButtons.YesNo);
-            if (resp==DialogResult.Yes)
+
+            resp = MessageBox.Show("Tem certeza que deseja sair?",
+                "Aviso do sistema",
+                MessageBoxButtons.YesNo);
+
+            if (resp == DialogResult.Yes)
             {
                 this.Close();
             }
@@ -109,27 +108,30 @@ namespace SistemFinanc
             }
         }
 
-        private void CadMenu_Click(object sender, EventArgs e)
-        {
-          
-        }
-
         private void subMenuCategoria_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<frmCategoria>().Count() < 1)
-            
+            if (fCategoria == null)
             {
-                frmCategoria fCategoria = new frmCategoria();
-                fCategoria.MdiParent = this;
-                fCategoria.Show();
+                fCategoria = new frmCategoria();
+                fCategoria.FormClosed += new FormClosedEventHandler(fCategoria_Closed);
             }
+            else
+            {
+                fCategoria.Activate();
+            }
+
+            fCategoria.MdiParent = this;
+            fCategoria.Show();
+        }
+
+        void fCategoria_Closed(object sender, FormClosedEventArgs e)
+        {
+            fCategoria = null;
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Felipe da Silva Furlani Ra-201279\nAna Júlia Pereira Sentinella Ra-201281","aviso do sistema", MessageBoxButtons.OK);
+            MessageBox.Show("Felipe da Silva Furlani - 201279 \n Ana Júlia Pereira Sentinella - 201281", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-       
     }
 }

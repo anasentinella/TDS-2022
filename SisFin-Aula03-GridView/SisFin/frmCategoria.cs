@@ -1,24 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemFinanc
+namespace SisFin
 {
     public partial class frmCategoria : Form
     {
         private bool Insercao = false;
         private bool Edicao = false;
-        // NOVO ====================
         private Categoria categoria = new Categoria();
         private List<Categoria> lstCategoria = new List<Categoria>();
         private BindingSource bsCategoria;
-        //==========================
+
         public frmCategoria()
         {
             InitializeComponent();
@@ -34,7 +27,7 @@ namespace SistemFinanc
             chkStatus.Checked = false;
         }
 
-        // NOVO ====================
+
         private void preencheCampos()
         {
             txtNome.Text = dgCategoria.Rows[dgCategoria.CurrentRow.Index].Cells[1].Value.ToString();
@@ -51,7 +44,7 @@ namespace SistemFinanc
                 chkStatus.Checked = false;
         }
 
-        // NOVO ====================
+
         private void carregaGridCategoria()
         {
             bsCategoria = new BindingSource();
@@ -60,18 +53,19 @@ namespace SistemFinanc
             dgCategoria.DataSource = bsCategoria;
             dgCategoria.Refresh();
         }
-        // =================================           
+
         private void novoRegistro(object sender, EventArgs e)
         {
             grpCategoria.Enabled = true;
             limparCampos();
             txtNome.Focus();
             btnAlterar.Enabled = false;
-            btnCancela.Visible = true;
+            btnCancelar.Visible = true;
             btnSalvar.Visible = true;
             btnExcluir.Visible = false;
             btnNovo.Enabled = false;
-            dgCategoria.Enabled = false; //novo
+            dgCategoria.Enabled = false;
+            chkStatus.Checked = true;
             Insercao = true;
             Edicao = false;
         }
@@ -82,10 +76,10 @@ namespace SistemFinanc
             btnNovo.Focus();
             grpCategoria.Enabled = false;
             btnAlterar.Enabled = true;
-            btnCancela.Visible = false;
+            btnCancelar.Visible = false;
             btnSalvar.Visible = false;
             btnExcluir.Visible = true;
-            dgCategoria.Enabled = true; //novo
+            dgCategoria.Enabled = true;
             Insercao = false;
             Edicao = false;
             preencheCampos();
@@ -99,16 +93,15 @@ namespace SistemFinanc
             txtNome.Enabled = false;
             txtDescricao.Focus();
             btnSalvar.Visible = true;
-            btnCancela.Visible = true;
+            btnCancelar.Visible = true;
             btnExcluir.Visible = false;
-            dgCategoria.Enabled = false; //novo
+            dgCategoria.Enabled = false;
             Edicao = true;
             Insercao = false;
         }
 
         private void frmCategoria_Load(object sender, EventArgs e)
         {
-            // NOVO ====================
             dgCategoria.ColumnCount = 5;
             dgCategoria.AutoGenerateColumns = false;
             dgCategoria.Columns[0].Width = 50;
@@ -134,20 +127,11 @@ namespace SistemFinanc
             dgCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             carregaGridCategoria();
-            //================================
+
         }
 
         private void salvarRegistro(object sender, EventArgs e)
         {
-
-            // DESAFIO
-            /*
-             * Se for uma alteração, procurar o elemento na lista e atualizá-lo.
-             * Se for uma inclusão, simplesmente adicionar um novo elmento na lista.
-             * IMPORTANTE!!!
-             * Após atualizar a lista deverá ser atualizado o GRIDVIEW
-             */
-
             if (Insercao)
             {
                 var nome = txtNome.Text.Trim();
@@ -179,17 +163,17 @@ namespace SistemFinanc
             txtNome.Enabled = true;
             grpCategoria.Enabled = false;
             btnAlterar.Enabled = true;
-            btnCancela.Visible = false;
+            btnCancelar.Visible = false;
             btnSalvar.Visible = false;
             btnExcluir.Visible = true;
-            dgCategoria.Enabled = true; //novo
+            dgCategoria.Enabled = true;
 
             Insercao = false;
             Edicao = false;
 
         }
 
-        // NOVO ====================
+
         private void dgCategoria_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (dgCategoria.RowCount > 0)
@@ -216,16 +200,16 @@ namespace SistemFinanc
             if (resp == DialogResult.Yes)
             {
                 MessageBox.Show("Registro excluido com sucesso!", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgCategoria.Rows.RemoveAt(dgCategoria.CurrentRow.Index);
             }
         }
-        //==================================
 
         private void fecharForm(object sender, FormClosingEventArgs e)
         {
             if (Edicao || Insercao)
             {
                 e.Cancel = true;
-                MessageBox.Show("Rimani qui!", "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bleib hier! (fique aqui)", "Aviso do sistema!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
