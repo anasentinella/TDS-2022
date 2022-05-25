@@ -37,7 +37,7 @@ namespace SistemFinanc
 
         public void AddToList(int id, string nome, string descricao, int tipo, int status)
         {
-            _lstCategoria.Add(new Categoria(id, nome, descricao, tipo, status));
+            _listCategoria.Add(new Categoria(id, nome, descricao, tipo, status));
         }
 
         public List<Categoria> GeraCategorias()
