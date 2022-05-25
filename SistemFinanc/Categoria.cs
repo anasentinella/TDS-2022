@@ -35,9 +35,9 @@ namespace SistemFinanc
             return _listCategoria;
         }
 
-        public void addToList(int id, string nome, string descricao, int tipo, int status)
+        public void AddToList(int id, string nome, string descricao, int tipo, int status)
         {
-            _listCategoria.Add(new Categoria(id, nome, descricao, tipo, status));
+            _lstCategoria.Add(new Categoria(id, nome, descricao, tipo, status));
         }
 
         public List<Categoria> GeraCategorias()
@@ -49,5 +49,7 @@ namespace SistemFinanc
             return _listCategoria;
         }
 
-     }
+      
+
+    }
 }

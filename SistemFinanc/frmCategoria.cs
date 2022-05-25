@@ -26,7 +26,23 @@ namespace SistemFinanc
             InitializeComponent();
             lstCategoria = categoria.GeraCategorias();
         }
+        private void preencheCampos()
+        {
+            txtNome.Text = dgCategoria.Rows[dgCategoria.CurrentRow.Index].Cells[1].Value.ToString();
+            txtDescricao.Text = dgCategoria.Rows[dgCategoria.CurrentRow.Index].Cells[2].Value.ToString();
 
+            if (Convert.ToInt16(dgCategoria.Rows[dgCategoria.CurrentRow.Index].Cells[3].Value.ToString()) == 1)
+                rdReceita.Checked = true;
+            else
+                rdDespesa.Checked = true;
+
+            if (Convert.ToInt16(dgCategoria.Rows[dgCategoria.CurrentRow.Index].Cells[4].Value.ToString()) == 1)
+                chkStatus.Checked = true;
+            else
+                chkStatus.Checked = false;
+        }
+       
+        
         public void carregaGridCatoria()
         {
             bsCategoria = new BindingSource();
@@ -71,65 +87,77 @@ namespace SistemFinanc
             dgCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             carregaGridCatoria();
+
+
         }
+        private void dgCategoria_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgCategoria.RowCount > 0)
+            {
+                txtNome.Text = dgCategoria.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtDescricao.Text = dgCategoria.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-        
+                if (Convert.ToInt16(dgCategoria.Rows[e.RowIndex].Cells[3].Value.ToString()) == 1)
+                    rdReceita.Checked = true;
+                else
+                    rdDespesa.Checked = true;
 
-
-
+                if (Convert.ToInt16(dgCategoria.Rows[e.RowIndex].Cells[4].Value.ToString()) == 1)
+                    chkStatus.Checked = true;
+                else
+                    chkStatus.Checked = false;
+            }
+        }
         private void btnNovo_Click(object sender, EventArgs e)
         {
             grpCategoria.Enabled = true;
             limparCampos();
             txtNome.Focus();
             btnAlterar.Enabled = false;
-            btnCancela.Visible = false;
+            btnCancela.Visible = true;
             btnSalvar.Visible = true;
             btnExcluir.Visible = false;
-            btnNovo.Enabled = true;
-            chkStatus.Checked = true;
+            btnNovo.Enabled = false;
+            dgCategoria.Enabled = false; //novo
             Insercao = true;
             Edicao = false;
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            grpCategoria.Enabled = true;
-            txtNome.Focus();
-            btnAlterar.Enabled = false;
-            btnCancela.Enabled = true;
             btnNovo.Enabled = false;
-            btnAlterar.Enabled = true;
-            btnExcluir.Visible = false;
+            btnAlterar.Enabled = false;
+            grpCategoria.Enabled = true;
+            txtNome.Enabled = false;
+            txtDescricao.Focus();
             btnSalvar.Visible = true;
             btnCancela.Visible = true;
-            Insercao = false;
+            btnExcluir.Visible = false;
+            dgCategoria.Enabled = false; //novo
             Edicao = true;
+            Insercao = false;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(" Deseja mesmo Excluir? ", " Aviso do sistema! ", MessageBoxButtons.YesNo,
-                              MessageBoxIcon.Information) == DialogResult.Yes)
+            DialogResult resp;
+            resp = MessageBox.Show("Confirma exclusão?", "Aviso do sisema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (resp == DialogResult.Yes)
             {
-                limparCampos();
-                MessageBox.Show(" Arquivo excluido com sucesso! ", " Aviso do sistema! ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Registro excluido com sucesso!", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-            {
-
-            }
-            btnNovo.Focus();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (Insercao)
             {
-
+                var nome = txtNome.Text.Trim();
+                var descr = txtDescricao.Text.Trim();
+                var tipo = rdReceita.Checked ? 1 : 2;
+                var status = chkStatus.Checked ? 1 : 0;
+                categoria.AddToList(3, nome, descr, tipo, status);
             }
-
-
 
             if (Edicao)
             {
@@ -140,42 +168,41 @@ namespace SistemFinanc
                     ct.Tipo = rdReceita.Checked ? 1 : 2;
                     ct.Status = chkStatus.Checked ? 1 : 0;
                 }
-
-                MessageBox.Show("Registro salvo com sucesso!", "aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                btnNovo.Enabled = true;
-
-                txtDescricao.Enabled = true;
-                btnAlterar.Enabled = true;
-                btnCancela.Visible = false;
-                btnSalvar.Visible = false;
-                btnExcluir.Visible = true;
-                grpCategoria.Enabled = false;
-                btnNovo.Enabled = false;
-                btnNovo.Focus();
-                Insercao = false;
-                Edicao = false;
             }
-        }
-        private void btnCancela_Click(object sender, EventArgs e)
-        {
+
+            carregaGridCatoria();
+
+            MessageBox.Show("Registro gravado com sucesso!", "Aviso do sistema",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
             btnNovo.Enabled = true;
-            btnAlterar.Enabled = true;
-            btnExcluir.Visible = true;
-            btnSalvar.Visible = false;
-            btnCancela.Visible = false;
-            grpCategoria.Enabled = false;
             btnNovo.Focus();
-            Insercao = true;
+            txtNome.Enabled = true;
+            grpCategoria.Enabled = false;
+            btnAlterar.Enabled = true;
+            btnCancela.Visible = false;
+            btnSalvar.Visible = false;
+            btnExcluir.Visible = true;
+            dgCategoria.Enabled = true; //novo
+
+            Insercao = false;
             Edicao = false;
         }
-
-       
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-          
+            btnNovo.Enabled = true;
+            btnNovo.Focus();
+            grpCategoria.Enabled = false;
+            btnAlterar.Enabled = true;
+            btnCancela.Visible = false;
+            btnSalvar.Visible = false;
+            btnExcluir.Visible = true;
+            dgCategoria.Enabled = true; //novo
+            Insercao = false;
+            Edicao = false;
+            preencheCampos();
         }
-
         private void frmCategoria_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (Edicao || Insercao)

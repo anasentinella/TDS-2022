@@ -207,7 +207,7 @@ namespace SistemFinanc
             this.btnCancela.TabIndex = 5;
             this.btnCancela.Text = "Cancelar";
             this.btnCancela.UseVisualStyleBackColor = false;
-            this.btnCancela.Click += new System.EventHandler(this.btnCancela_Click);
+           
             // 
             // dgCategoria
             // 
@@ -217,7 +217,7 @@ namespace SistemFinanc
             this.dgCategoria.RowTemplate.Height = 25;
             this.dgCategoria.Size = new System.Drawing.Size(755, 200);
             this.dgCategoria.TabIndex = 6;
-            this.dgCategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+
             // 
             // frmCategoria
             // 
