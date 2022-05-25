@@ -131,7 +131,7 @@ namespace SisFin
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("RA1 - Nome Aluno1\nRA2 - Nome Aluno2", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Felipe da Silva Furlani - 201279 \n Ana Júlia Pereira Sentinella - 201281", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

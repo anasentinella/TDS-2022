@@ -66,6 +66,7 @@ namespace SisFin
             btnExcluir.Visible = false;
             btnNovo.Enabled = false;
             dgCategoria.Enabled = false; //novo
+            chkStatus.Checked = true;
             Insercao = true;
             Edicao = false;
         }
@@ -210,6 +211,7 @@ namespace SisFin
             if (resp == DialogResult.Yes)
             {
                 MessageBox.Show("Registro excluido com sucesso!", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgCategoria.Rows.RemoveAt(dgCategoria.CurrentRow.Index);
             }
         }
         //==================================
@@ -219,7 +221,7 @@ namespace SisFin
             if (Edicao || Insercao)
             {
                 e.Cancel = true;
-                MessageBox.Show("Rimani qui!","Aviso do sistema!",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Bleib hier! (fique aqui)","Aviso do sistema!",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
     }

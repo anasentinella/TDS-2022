@@ -139,6 +139,7 @@ namespace SisFin
             // 
             // txtDescricao
             // 
+            this.txtDescricao.BackColor = System.Drawing.SystemColors.Menu;
             this.txtDescricao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDescricao.Location = new System.Drawing.Point(108, 67);
             this.txtDescricao.MaxLength = 100;
@@ -148,6 +149,7 @@ namespace SisFin
             // 
             // txtNome
             // 
+            this.txtNome.BackColor = System.Drawing.SystemColors.Menu;
             this.txtNome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtNome.Location = new System.Drawing.Point(108, 32);
             this.txtNome.MaxLength = 50;
@@ -157,53 +159,58 @@ namespace SisFin
             // 
             // btnNovo
             // 
+            this.btnNovo.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnNovo.Location = new System.Drawing.Point(9, 454);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(100, 34);
             this.btnNovo.TabIndex = 0;
             this.btnNovo.Text = "Novo";
-            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.novoRegistro);
             // 
             // btnAlterar
             // 
+            this.btnAlterar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnAlterar.Location = new System.Drawing.Point(117, 454);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(100, 34);
             this.btnAlterar.TabIndex = 1;
             this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.alteraRegistro);
             // 
             // btnExcluir
             // 
+            this.btnExcluir.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnExcluir.Location = new System.Drawing.Point(223, 454);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 34);
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnSalvar
             // 
+            this.btnSalvar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSalvar.Location = new System.Drawing.Point(329, 454);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(100, 34);
             this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Visible = false;
             this.btnSalvar.Click += new System.EventHandler(this.salvarRegistro);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCancelar.Location = new System.Drawing.Point(689, 454);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 34);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Visible = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -221,6 +228,7 @@ namespace SisFin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(795, 500);
             this.Controls.Add(this.dgCategoria);
             this.Controls.Add(this.btnCancelar);
