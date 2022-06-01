@@ -133,5 +133,11 @@ namespace SisFin
         {
             MessageBox.Show("Felipe da Silva Furlani - 201279 \n Ana Júlia Pereira Sentinella - 201281", "Aviso do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void subMenuConta_Click(object sender, EventArgs e)
+        {
+            frmContas fContas = new frmContas();
+            fContas.Show();
+        }
     }
 }
