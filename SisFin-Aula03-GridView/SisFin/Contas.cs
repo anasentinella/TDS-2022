@@ -6,50 +6,49 @@ using System.Threading.Tasks;
 
 namespace SisFin
 {
-    class Contas
+    public class Contas
     {
-        private int id{ get; set; }
-        private String nome  { get; set; }
-        private String descricao{ get; set; }
-        private int idcategoria { get; set; }
-        private int status { get; set; }
+        public int id{ get; set; }
+        public String nome  { get; set; }
+        public String descricao{ get; set; }
+        public int idcategoria { get; set; }
+        public int status { get; set; }
 
-        private List<Contas> lstContas = new List<Contas>();
-        private Contas contas = new Contas();
+        private List<Contas> _lstContas = new List<Contas>();
+        
 
         public Contas()
         {
         }
 
-        public Contas(int id, string nome, string descricao, int idcategoria, int status)
+        public Contas(int id, string nome, string descricao, int idcategoria,int status)
         {
             this.id = id;
             this.nome = nome;
             this.descricao = descricao;
             this.idcategoria = idcategoria;
             this.status = status;
-           
         }
 
         
 
-        public void AddToList(int idCategoria, string nome, string descricao)
+        public void AddToList(int id, string nome, string descricao,int idcategoria,int status)
         {
-            lstContas.Add(new Contas(idCategoria, nome, descricao));
+            _lstContas.Add(new Contas(id, nome, descricao,idcategoria,status));
         }
 
         public List<Contas> ToList()
         {
-            return lstContas;
+            return _lstContas;
         }
 
         public List<Contas> GeraContas()
         {
-            Contas co1 = new Contas (1,"Salario UNICAMP","Salario recebido da UNICAMP");
-            Contas co2 = new Contas(2,"Abastecimento Onix", "Combustivel Onix");
-            lstContas.Add(co1);
-            lstContas.Add(co2);
-            return lstContas;
+            Contas co1 = new Contas (1,"Salario UNICAMP","Salario recebido da UNICAMP",1,1);
+            Contas co2 = new Contas(2,"Abastecimento Onix", "Combustivel Onix",2,1);
+            _lstContas.Add(co1);
+            _lstContas.Add(co2);
+            return _lstContas;
         }
         
     }
