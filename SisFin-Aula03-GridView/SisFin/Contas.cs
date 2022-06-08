@@ -21,14 +21,11 @@ namespace SisFin
         {
         }
 
-        public Contas(int id, string nome, string descricao, int idcategoria, int status)
+        public Contas(int idcategoria, string nome, string descricao)
         {
-            this.id = id;
             this.nome = nome;
             this.descricao = descricao;
             this.idcategoria = idcategoria;
-            this.status = status;
-           
         }
 
         
